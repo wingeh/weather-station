@@ -7,12 +7,90 @@
 <meta name="Description" content="Get up to the minute weather information for cities around the world!"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="./Assets/css/style.css">
 <title>Weather Station</title>
 </head>
 <body>
+<header>
+    <h1>Weather Station</h1>
+</header>
+   <main>
+       <aside>
+        <input type="text" id="search-city">
+        <button id="searchBtn">
+            <i class="fas fa-search">
+            </i>
+        </button>
+        
+        <section id="searchHistory">
+            <h3>Search History:</h3>
+            <div class="historycard"><p>Previously</p></div>
+            <div class="historycard"><p>searched</p></div>
+            <div class="historycard"><p>cities</p></div>
+        </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       </aside>
+
+       <section>
+           <h2>City Name (YYYY/MM/DD) <span id="weatherToday">[ICON]</span></h2>
+           <p>Temperature: XX.X &deg;c</p>
+           <p>Humidity: XX%</p>
+           <p>Wind Speed: XX km/h</p>
+           <p>UV Index: <span id="uvIndex">XX.X</span></p>
+       </section>
+
+       <section>
+           <h3>5-Day Forecast</h3>
+           <div class="flex">
+               <div class="card" id="future1">
+                   <h4>YYYY/MM/DD</h4>
+                    <span><i class="fa fa-cloud"></i></span>
+                    <p>Temp: XX.X &deg;C</p>
+                    <p>Humidity: XX%</p>
+                </div>
+
+                <div class="card" id="future2">
+                    <h4>YYYY/MM/DD</h4>
+                    <span><i class="fa fa-cloud"></i></span>
+                    <p>Temp: XX.X &deg;C</p>
+                    <p>Humidity: XX%</p>
+                </div>
+
+                <div class="card" id="future3">
+                    <h4>YYYY/MM/DD</h4>
+                    <span><i class="fa fa-cloud"></i></span>
+                    <p>Temp: XX.X &deg;C</p>
+                    <p>Humidity: XX%</p>
+                </div>
+
+                <div class="card" id="future4">
+                    <h4>YYYY/MM/DD</h4>
+                    <span><i class="fa fa-cloud"></i></span>
+                    <p>Temp: XX.X &deg;C</p>
+                    <p>Humidity: XX%</p>
+                </div>
+
+                <div class="card" id="future5">
+                    <h4>YYYY/MM/DD</h4>
+                    <span><i class="fa fa-cloud"></i></span>
+                    <p>Temp: XX.X &deg;C</p>
+                    <p>Humidity: XX%</p>
+                </div>
+            </div>
+       </section>
+   </main>
+
+   <footer>
+       <p>Copyright &copy; 2021 Weather Station Inc.</p>
+       <p>Created by: <a href="https://wingeh.github.io/portfolio/" target="_blank">Andrew Wing</a></p>
+   </footer>
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- Popper.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<!-- Weather Station JS -->    
+<script src="./Assets/js/script.js"></script>
 </body>
 </html>
