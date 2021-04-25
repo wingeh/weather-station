@@ -2,10 +2,13 @@
 
 
 const searchHistory = document.getElementById("searchHistory");
+const searchBtn = document.getElementById("searchBtn")
+
+const fiveDay = document.getElementById("fiveDay")
 
 // Listen for search click
-document.getElementById("searchBtn").addEventListener("click", function() {
-
+searchBtn.addEventListener("click", function() {
+console.log ("button clicked")
     const city = document.getElementById("search-city").value;
   
     //if empty
@@ -13,8 +16,11 @@ document.getElementById("searchBtn").addEventListener("click", function() {
       return;
     } else {
     callAPI(city);
+    document.getElementById("fiveDay").style.visibility = "visible";
+    document.getElementById("weatherToday").style.visibility = "visible";
+    document.getElementById("searchHistory").style.visibility = "visible";
     };
-
+   
     
 });
 

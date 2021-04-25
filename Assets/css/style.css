@@ -41,6 +41,10 @@ footer{
 section {
     width: 100%;
 }
+
+#searchHistory {
+    visibility: hidden;
+}
 #weatherToday {
     align-self: flex-start;
     background-color:#fff;
@@ -50,12 +54,14 @@ section {
     padding: 5%;
     margin: 5%;
     width: 90%;
+    visibility: hidden;
 }
 
 #fiveDay {
     align-self: flex-end;
     margin: 5%;
     width: 90%;
+    visibility: hidden;
 }
 
 #forecast-window {
