@@ -31,46 +31,48 @@
 
        </aside>
 
-       <section>
-           <h2>City Name (YYYY/MM/DD) <span id="weatherToday">[ICON]</span></h2>
+       <div id="forecast-window">
+        
+       <section id="weatherToday">
+           <h2>City Name (YYYY/MM/DD) <span>[ICON]</span></h2>
            <p>Temperature: XX.X &deg;c</p>
            <p>Humidity: XX%</p>
            <p>Wind Speed: XX km/h</p>
            <p>UV Index: <span id="uvIndex">XX.X</span></p>
        </section>
 
-       <section>
+       <section id="fiveDay">
            <h3>5-Day Forecast</h3>
            <div class="flex">
-               <div class="card" id="future1">
+               <div class="weather-card" id="future1">
                    <h4>YYYY/MM/DD</h4>
                     <span><i class="fa fa-cloud"></i></span>
                     <p>Temp: XX.X &deg;C</p>
                     <p>Humidity: XX%</p>
                 </div>
 
-                <div class="card" id="future2">
+                <div class="weather-card" id="future2">
                     <h4>YYYY/MM/DD</h4>
                     <span><i class="fa fa-cloud"></i></span>
                     <p>Temp: XX.X &deg;C</p>
                     <p>Humidity: XX%</p>
                 </div>
 
-                <div class="card" id="future3">
+                <div class="weather-card" id="future3">
                     <h4>YYYY/MM/DD</h4>
                     <span><i class="fa fa-cloud"></i></span>
                     <p>Temp: XX.X &deg;C</p>
                     <p>Humidity: XX%</p>
                 </div>
 
-                <div class="card" id="future4">
+                <div class="weather-card" id="future4">
                     <h4>YYYY/MM/DD</h4>
                     <span><i class="fa fa-cloud"></i></span>
                     <p>Temp: XX.X &deg;C</p>
                     <p>Humidity: XX%</p>
                 </div>
 
-                <div class="card" id="future5">
+                <div class="weather-card" id="future5">
                     <h4>YYYY/MM/DD</h4>
                     <span><i class="fa fa-cloud"></i></span>
                     <p>Temp: XX.X &deg;C</p>
@@ -78,6 +80,7 @@
                 </div>
             </div>
        </section>
+       </div>
    </main>
 
    <footer>

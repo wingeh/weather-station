@@ -1,1 +1,98 @@
 /* Weather Station Styles */
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    /*background: #fafafa;*/
+    min-height: 100%;
+    margin: 0px;
+}
+
+header {
+    text-align: center;
+    color: #eee;
+    background-color: #333;
+    min-height:50px;
+    margin: 0px;
+    padding: 10px;
+}
+
+main {
+    display: flex;
+    /*justify-content: flex-start;*/
+    min-width: 100%;
+    background-color: #eee;
+}
+
+aside{
+ width: 20%;
+ text-align: center;   
+ background-color:#fff;
+ padding-top: 10px;
+}
+
+footer{
+    color:#eee;
+    background-color: #333;
+    text-align: center;
+}
+
+section {
+    width: 100%;
+}
+#weatherToday {
+    align-self: flex-start;
+    background-color:#fff;
+    border-radius: 10px;
+    border-color: #333;
+    border-width: 3px;
+    padding: 5%;
+    margin: 5%;
+    width: 90%;
+}
+
+#fiveDay {
+    align-self: flex-end;
+    margin: 5%;
+    width: 90%;
+}
+
+#forecast-window {
+    width:80%;
+
+}
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+.weather-card {
+    width: 20%;
+    padding:2%;
+    margin: 2%;
+    background-color: rgb(97, 97, 253);
+    text-align: center;
+    border-radius: 10px;
+    color: #fff;
+}
+.weather-card p {
+    color:#fff;
+    font-size: 0.9em;
+}
