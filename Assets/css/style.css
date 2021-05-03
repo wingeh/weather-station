@@ -42,9 +42,10 @@ section {
     width: 100%;
 }
 
-#searchHistory {
-    visibility: hidden;
+#history {
+    /*visibility: hidden;*/
 }
+
 #weatherToday {
     align-self: flex-start;
     background-color:#fff;
@@ -66,8 +67,8 @@ section {
 
 #forecast-window {
     width:80%;
-
 }
+
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
@@ -99,7 +100,14 @@ a:focus {
     border-radius: 10px;
     color: #fff;
 }
+
 .weather-card p {
     color:#fff;
     font-size: 0.9em;
+}
+
+#searched {
+    cursor: pointer;
+    margin-left: 0px;
+    list-style-type: none;
 }
