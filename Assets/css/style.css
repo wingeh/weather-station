@@ -43,7 +43,7 @@ section {
 }
 
 #history {
-    /*visibility: hidden;*/
+    visibility: hidden;
 }
 
 #weatherToday {
@@ -55,18 +55,17 @@ section {
     padding: 5%;
     margin: 5%;
     width: 90%;
-    visibility: hidden;
 }
 
 #fiveDay {
     align-self: flex-end;
     margin: 5%;
     width: 90%;
-    visibility: hidden;
 }
 
 #forecast-window {
     width:80%;
+    visibility: hidden;
 }
 
 p {

@@ -74,16 +74,16 @@ button.addEventListener('click', function () {
   
         // Return Weather Icon
         const weatherIcon = data.weather[0].icon;
-        const iconUrl = 'https://openweathermap.org/img/wn/' + weatherIcon + '@2x.png';
+        const iconTodayUrl = 'https://openweathermap.org/img/wn/' + weatherIcon + '@2x.png';
   
-  console.log (iconUrl);
+  console.log (iconTodayUrl);
         $('#cityName').text(data.name + " " + "(" + currentDate + ")");
-        $('#weatherIconToday').attr('src', iconUrl);
+        $('#weatherIconToday').attr('src', iconTodayUrl);
   
   
-        const temp = (data.main.temp - 273.15);
+        const tempToday = (data.main.temp - 273.15);
   
-        $('#temperature').text(temp.toFixed(0));
+        $('#temperature').text(tempToday.toFixed(0));
   
   
         $('#humidity').text(data.main.humidity);
@@ -92,8 +92,8 @@ button.addEventListener('click', function () {
         $('#windSpeed').text(data.wind.speed.toFixed(1));
   
   
-        var lat = data.coord.lat;
-        var lon = data.coord.lon;
+        const lat = data.coord.lat;
+        const lon = data.coord.lon;
 
         
       }
@@ -111,12 +111,41 @@ searchBtn.addEventListener("click", function() {
         return;
       } else {
       console.log("City : " + city.value)
+      
       callAPI(city);
-      document.getElementById("fiveDay").style.visibility = "visible";
-      document.getElementById("weatherToday").style.visibility = "visible";
-      document.getElementById("history").style.visibility = "visible";
+      fiveDayForecast(city);
+
+      $("#history").attr("style", "visibility:visible");
+      $("#forecast-window").attr("style", "visibility:visible");
+      
       };
       
       return;
   });
 
+  // 5 Day Forcast ---------------------------------------------------
+
+function fiveDayForecast(city) {
+  const fiveDayUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city.value + '&units=metric&appid=' + apiKey;
+
+  fetch(fiveDayUrl, {
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      for (i = 0; i < 5; i++) {
+        const date = new Date((data.list[((i + 1) * 8) - 1].dt) * 1000).toLocaleDateString();
+        const futureIcon = data.list[((i + 1) * 8) - 1].weather[0].icon;
+        const futureIconUrl = 'https://openweathermap.org/img/wn/' + futureIcon + '.png';
+        const futureTemp = data.list[((i + 1) * 8) - 1].main.temp.toFixed(0);
+        const futureHumidity = data.list[((i + 1) * 8) - 1].main.humidity;
+
+        $("#date" + i).text(date);
+        $("#icon" + i).attr("src", futureIconUrl);
+        $("#temp" + i).text(futureTemp);
+        $("#humidity" + i).text(futureHumidity);
+
+      }
+    })
+}
