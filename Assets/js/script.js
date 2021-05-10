@@ -120,6 +120,33 @@ ul.onclick = function(event) {
         const lat = data.coord.lat;
         const lon = data.coord.lon;
 
+              //get UV Index
+      var uvIndexUrl = 'https://api.openweathermap.org/data/2.5/uvi?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey;
+
+      fetch(uvIndexUrl, {
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+
+
+          var coloredIndex = data.value
+
+          $('#uvIndex').text('  ' + coloredIndex);
+
+
+          if (data.value <= 2) {
+            coloredIndex.css('background-color', 'green')
+          } else if (data.value <= 5) {
+            $('#uvIndex').css('background-color', 'yellow')
+          } else if (data.value <= 7) {
+            $('#uvIndex').css('background-color', 'orange')
+          } else if (data.value <= 10) {
+            $('#uvIndex').css('background-color', 'red')
+          }
+
+        });
         
       }
       )
