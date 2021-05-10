@@ -22,6 +22,8 @@ main {
     /*justify-content: flex-start;*/
     min-width: 100%;
     background-color: #eee;
+    margin: 0px;
+    padding: 0px;
 }
 
 aside{
@@ -29,6 +31,7 @@ aside{
  text-align: center;   
  background-color:#fff;
  padding-top: 10px;
+ margin-left:0px;
 }
 
 footer{
@@ -42,8 +45,9 @@ section {
     width: 100%;
 }
 
-#history {
-    visibility: hidden;
+#searchHistory {
+   margin:0px;
+   padding: 0px;
 }
 
 #weatherToday {
@@ -106,7 +110,20 @@ a:focus {
 }
 
 #searched {
+padding-inline-start: 0px;
+margin: 0px;
+padding:0px;
+}
+
+.historyItem {
     cursor: pointer;
-    margin-left: 0px;
+    margin: 5px;
+    padding:5px;
+    background-color: aliceblue;
+    border-radius: 2px;
+    border-width: 3px;
+    border-color: black;
     list-style-type: none;
+    text-align: left;
+    width: 100%;
 }

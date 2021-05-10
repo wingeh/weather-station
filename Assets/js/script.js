@@ -1,10 +1,10 @@
 // Weather Stations Javascript
-const history = document.getElementById("history");
-const searchHistory = document.getElementById("searchHistory");
+//const history = document.getElementById("history");
+//const searchHistory = document.getElementById("searchHistory");
 const searchBtn = document.getElementById("searchBtn");
 const clearHistory = document.getElementById("clearAll");
 //const ul = document.getElementById("searchHistory")
-let city = document.getElementById("item");
+const city = document.getElementById("item");
 //const searchHistory = document.getElementById("searchHistory")
 
 const fiveDay = document.getElementById("fiveDay");
@@ -63,6 +63,7 @@ ul.onclick = function(event) {
     const cityClick = target.innerHTML;
 
   clickAPI(cityClick);
+  clickFiveDay(cityClick);
 };
 
 // Open Weather API ---------------------------------------------------
@@ -74,6 +75,7 @@ ul.onclick = function(event) {
  function clickAPI (cityClick){
    let weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityClick + '&appid=' + apiKey;
    currentWeather(weatherUrl);
+   
     return;
  }
 
@@ -114,7 +116,7 @@ ul.onclick = function(event) {
   
         $('#windSpeed').text(data.wind.speed.toFixed(1));
   
-  
+        $("#forecast-window").attr("style", "visibility:visible");
         const lat = data.coord.lat;
         const lon = data.coord.lon;
 
@@ -136,11 +138,6 @@ searchBtn.addEventListener("click", function() {
       console.log("City : " + city.value)
       
       callAPI(city);
-      fiveDayForecast(city);
-
-      $("#history").attr("style", "visibility:visible");
-      $("#forecast-window").attr("style", "visibility:visible");
-      
       };
       
       return;
@@ -158,11 +155,37 @@ function fiveDayForecast(city) {
     })
     .then(function (data) {
       for (i = 0; i < 5; i++) {
-        const date = new Date((data.list[((i + 1) * 8) - 1].dt) * 1000).toLocaleDateString();
-        const futureIcon = data.list[((i + 1) * 8) - 1].weather[0].icon;
-        const futureIconUrl = 'https://openweathermap.org/img/wn/' + futureIcon + '.png';
-        const futureTemp = data.list[((i + 1) * 8) - 1].main.temp.toFixed(0);
-        const futureHumidity = data.list[((i + 1) * 8) - 1].main.humidity;
+        let date = new Date((data.list[((i + 1) * 8) - 1].dt) * 1000).toLocaleDateString();
+        let futureIcon = data.list[((i + 1) * 8) - 1].weather[0].icon;
+        let futureIconUrl = 'https://openweathermap.org/img/wn/' + futureIcon + '.png';
+        let futureTemp = data.list[((i + 1) * 8) - 1].main.temp.toFixed(0);
+        let futureHumidity = data.list[((i + 1) * 8) - 1].main.humidity;
+
+        $("#date" + i).text(date);
+        $("#icon" + i).attr("src", futureIconUrl);
+        $("#temp" + i).text(futureTemp);
+        $("#humidity" + i).text(futureHumidity);
+
+      }
+    })
+};
+
+// 5 Day Forecase for click
+function clickFiveDay(cityClick) {
+  const clickFiveDayUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityClick + '&units=metric&appid=' + apiKey;
+
+  fetch(clickFiveDayUrl, {
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      for (i = 0; i < 5; i++) {
+        let date = new Date((data.list[((i + 1) * 8) - 1].dt) * 1000).toLocaleDateString();
+        let futureIcon = data.list[((i + 1) * 8) - 1].weather[0].icon;
+        let futureIconUrl = 'https://openweathermap.org/img/wn/' + futureIcon + '.png';
+        let futureTemp = data.list[((i + 1) * 8) - 1].main.temp.toFixed(0);
+        let futureHumidity = data.list[((i + 1) * 8) - 1].main.humidity;
 
         $("#date" + i).text(date);
         $("#icon" + i).attr("src", futureIconUrl);
