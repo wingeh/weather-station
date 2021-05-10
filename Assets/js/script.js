@@ -4,7 +4,7 @@ const searchHistory = document.getElementById("searchHistory");
 const searchBtn = document.getElementById("searchBtn");
 const clearHistory = document.getElementById("clearAll");
 //const ul = document.getElementById("searchHistory")
-const city = document.getElementById("item");
+let city = document.getElementById("item");
 //const searchHistory = document.getElementById("searchHistory")
 
 const fiveDay = document.getElementById("fiveDay");
@@ -23,7 +23,9 @@ const data = JSON.parse(localStorage.getItem('items'));
 const liMaker = (text) => {
   const li = document.createElement('li');
   li.textContent = text;
+  
   ul.appendChild(li);
+  $(li).attr("class", "historyItem")
 }
 
 form.addEventListener('submit', function (e) {
@@ -39,7 +41,7 @@ data.forEach(item => {
   liMaker(item);
 });
 
-// Clear localStorage
+// Clear localStorage ------------------------------------------------
 button.addEventListener('click', function () {
   localStorage.clear();
   while (ul.firstChild) {
@@ -48,14 +50,35 @@ button.addEventListener('click', function () {
   itemsArray = [];
 });
 
+// Make History Clickable ---------------------------------------------
+
+function getEventTarget(e) {
+  e = e || window.event;
+  return e.target || e.srcElement; 
+}
+
+
+ul.onclick = function(event) {
+    var target = getEventTarget(event);
+    const cityClick = target.innerHTML;
+
+  clickAPI(cityClick);
+};
+
 // Open Weather API ---------------------------------------------------
 
  const apiKey = "d68b8d92b710c4a2fcb1275ab4feb85e";
 
  // Build API URL
 
+ function clickAPI (cityClick){
+   let weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityClick + '&appid=' + apiKey;
+   currentWeather(weatherUrl);
+    return;
+ }
+
  function callAPI(city) {
-    const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city.value + '&appid=' + apiKey;
+    let weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city.value + '&appid=' + apiKey;
     currentWeather(weatherUrl);
     return;
   };
